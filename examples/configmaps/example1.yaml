@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myhelsinki-apis
+  annotations:
+    
+data:
+  spec1: |- 
+    groups:
+    - key: myhelsinki
+      title: MyHelsinki
+      apiSpec: http://open-api.myhelsinki.fi/swagger.json
