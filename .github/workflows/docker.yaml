@@ -1,0 +1,30 @@
+name: Publish Docker image
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  docker-image:
+    
+    runs-on: ubuntu-latest
+
+    name: Push Docker image to ghcr.io
+    
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      
+      - uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GHCR_TOKEN }}
+
+      - name: Push to ghcr.io
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/chaliy/koap:latest

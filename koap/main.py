@@ -1,6 +1,7 @@
 from aiohttp import web
 from aiofile import AIOFile
 import json
+import os
 
 from api_groups import api_groups_registry
 
@@ -12,7 +13,7 @@ async def ping(request):
 app.router.add_route('GET', '/ping', ping)
 
 # Serve static site
-STATIC_BASE = '../koap-ui/build'
+STATIC_BASE = os.getenv('KOAP_STATIC_BASE', '../koap-ui/build')
 app.router.add_static('/static', f'{STATIC_BASE}/static')
 
 async def index_html(request):
@@ -25,5 +26,4 @@ async def index_html(request):
 
 app.router.add_get('/{path:.*}', index_html)
 
-
-web.run_app(app, host="127.0.0.1")
+web.run_app(app)
