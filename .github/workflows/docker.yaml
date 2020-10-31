@@ -10,12 +10,18 @@ jobs:
     
     runs-on: ubuntu-latest
 
-    name: Push Docker image to ghcr.io
-    
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+
+      # Build UI
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - run: npm ci && npm run build
+        working-directory: koap-ui
       
+      # Build and Push Docker image
       - uses: docker/login-action@v1
         with:
           registry: ghcr.io
