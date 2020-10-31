@@ -1,3 +1,5 @@
+name: Koap UI
+
 on: [push, pull_request]
 
 jobs:
