@@ -10,7 +10,7 @@ const groups = (window.API_GROUPS === '__API_GROUPS__')
   : window.API_GROUPS.groups; // Groups injected to index page
 
 ReactDOM.render(
-  <App apiGroups={apiGroups} />,
+  <App apiGroups={groups} />,
   document.getElementById('root')
 );
 
