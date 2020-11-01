@@ -19,4 +19,4 @@ USER app
 ENV KOAP_STATIC_BASE '/app/public'
 EXPOSE 8080
 
-CMD [ "python", "main.py" ] 
+ENTRYPOINT [ "python", "main.py" ] 

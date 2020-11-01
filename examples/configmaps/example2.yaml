@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: example2-koapapispecs
+  annotations:
+    koap.tv/apimanifests: "true"
+data:
+  manifest: |- 
+    apis:
+      petstore:
+        title: PET Store
+        apiSpec: https://petstore.swagger.io/v2/swagger.json
+      weatherbit:
+        title: Weatherbit.io
+        apiSpec: https://www.weatherbit.io/static/swagger.json

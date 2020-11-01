@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-import DemoAPIGroups from './demo/apigroups.json'
+import DemoManifest from './demo/manifest.json'
 
-const groups = (window.API_GROUPS === '__API_GROUPS__')
-  ? DemoAPIGroups.groups // Demo mode!
-  : window.API_GROUPS.groups; // Groups injected to index page
+const apis = (window.API_MANIFEST === '__API_MANIFEST__')
+  ? DemoManifest.apis // Demo mode!
+  : window.API_MANIFEST.apis; // Groups injected to index page
 
 ReactDOM.render(
-  <App apiGroups={groups} />,
+  <App apis={apis} />,
   document.getElementById('root')
 );
 

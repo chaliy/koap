@@ -4,12 +4,19 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pytest = "*"
+black = "*"
 pylint = "*"
 
 [packages]
 kopf = "*"
 aiohttp = "*"
 aiofile = "*"
+pyyaml = "*"
+click = "*"
 
 [requires]
 python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true

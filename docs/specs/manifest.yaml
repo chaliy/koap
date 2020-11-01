@@ -1,0 +1,13 @@
+properties:
+  apis:
+    type: object
+    additionalProperties:
+      description: Koap will use key to reference API  
+      type: object
+      properties:
+        title:
+          type: string
+          description: Human readable name. Koap will use it from example in sidebar
+        apiSpec:
+          type: string
+          description: URL to Swagger or OpenAPI spec

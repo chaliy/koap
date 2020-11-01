@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: myhelsinki-apis
+  name: myhelsinki-koapapispecs
   annotations:
-    
+    koap.tv/apimanifests: "true"
 data:
-  spec1: |- 
-    groups:
-    - key: myhelsinki
-      title: MyHelsinki
-      apiSpec: http://open-api.myhelsinki.fi/swagger.json
+  manifest: |- 
+    apis:
+      myhelsinki:
+        title: MyHelsinki
+        apiSpec: http://open-api.myhelsinki.fi/swagger.json

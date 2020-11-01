@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   BrowserRouter as Router,
@@ -34,9 +35,8 @@ const useStyles = makeStyles({
   },
 });
 
-function App(props) {
+function App({ apis }) {
   const classes = useStyles();
-  const { groups } = props || {};
 
   function Sidebar() {
     return <Drawer
@@ -49,8 +49,8 @@ function App(props) {
     >
       <Divider />
       <List>
-        {groups.map(group => (
-          <ListItem button key={group.key} component={Link} to={"/" + group.key } >{group.title}</ListItem>
+        {Object.keys(apis).map(key => (
+          <ListItem button key={key} component={Link} to={"/" + key } >{apis[key].title}</ListItem>
         ))}
       </List>
     </Drawer>
@@ -68,9 +68,9 @@ function App(props) {
 
         <main className={classes.content}>
           <Switch>
-            {groups.map(group => (
-              <Route key={group.key} path={"/" + group.key }>
-                <SwaggerUI url={group.apiSpec} />
+            {Object.keys(apis).map(key => (
+              <Route key={key} path={"/" + key }>
+                <SwaggerUI url={apis[key].apiSpec} />
               </Route>
             ))}
             <Route path="/">
@@ -78,12 +78,14 @@ function App(props) {
             </Route>
           </Switch>
         </main>
-
-        
         
       </div>
     </Router>
   );
+}
+
+App.propTypes = {
+  groups: PropTypes.array.isRequired
 }
 
 export default App;
