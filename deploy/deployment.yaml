@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: koap
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: koap
+  template:
+    metadata:
+      labels:
+        app: koap
+    spec:
+      serviceAccountName: koap
+      containers:
+      - name: koap
+        image: ghcr.io/chaliy/koap:latest
+        args:
+          - service
+          - --k8s # Enable Kubernetes integration
+        ports:
+        - containerPort: 8080
+          name: http
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 250m
+            memory: 128Mi

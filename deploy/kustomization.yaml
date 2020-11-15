@@ -1,0 +1,9 @@
+---
+kind: Kustomization
+
+namespace: koap-dev
+
+resources:
+- deployment.yaml
+- service.yaml
+- rbac.yaml

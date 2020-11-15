@@ -1,0 +1,13 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: koap
+spec:
+  selector:
+    app: koap
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: http
+    name: http

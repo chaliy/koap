@@ -9,7 +9,7 @@ Simple idea of having a web app that will show SwaggerUI for list of configured 
 
 - [x] UI to navigate through different OpenAPI and Swagger Specs
 - [x] Backend service to host UI and gather configured API Specs
-- [x] Kubernetes operator to listen for ConfigMaps with API Manifiests
+- [x] Listen to Kubernetes for ConfigMaps with API Manifiests
 - [ ] Support Kubernetes Koap CRDs
 - [ ] Support Service/Deployment/POD annotations with API Specs
 - [ ] Support to limit Koap to the single Kubernetes namespace
@@ -20,7 +20,7 @@ Simple idea of having a web app that will show SwaggerUI for list of configured 
 
 ### Kubernetes
 
-1. Install KOAP to your Kuberntes cluster. KOAP will use in-cluster auth to Kubernetes API.
+1. [Install KOAP to your Kuberntes cluster](./deploy/) KOAP will use in-cluster auth to Kubernetes API.
 2. Create few ConfigMaps with API Manifests ([example](./examples/configmaps/))
 3. Enjoy
 
